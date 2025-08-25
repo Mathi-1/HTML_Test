@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="neon-theme.css">
+
+  <title>CRBT Subscription</title>
+</head>
+<body>
+
+  <header>
+    <h1>CRBT Subscription Portal</h1>
+  </header>
+
+  <div class="status-box" id="statusBox">
+    Your Current Tune: None
+  </div>
+
+  <section class="song-list">
+    <div class="song-card">
+      <div class="song-info">
+        <div class="song-name">Shape of You</div>
+        <div class="song-artist">Ed Sheeran</div>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="playPreview('Shape of You')">▶ Play</button>
+        <button class="subscribe-btn" onclick="subscribe('Shape of You')">Subscribe</button>
+        <button class="unsubscribe-btn" onclick="unsubscribe('Shape of You')">Unsubscribe</button>
+      </div>
+    </div>
+
+    <div class="song-card">
+      <div class="song-info">
+        <div class="song-name">Blinding Lights</div>
+        <div class="song-artist">The Weeknd</div>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="playPreview('Blinding Lights')">▶ Play</button>
+        <button class="subscribe-btn" onclick="subscribe('Blinding Lights')">Subscribe</button>
+        <button class="unsubscribe-btn" onclick="unsubscribe('Blinding Lights')">Unsubscribe</button>
+      </div>
+    </div>
+
+    <div class="song-card">
+      <div class="song-info">
+        <div class="song-name">Perfect</div>
+        <div class="song-artist">Ed Sheeran</div>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="playPreview('Perfect')">▶ Play</button>
+        <button class="subscribe-btn" onclick="subscribe('Perfect')">Subscribe</button>
+        <button class="unsubscribe-btn" onclick="unsubscribe('Perfect')">Unsubscribe</button>
+      </div>
+    </div>
+
+    <div class="song-card">
+      <div class="song-info">
+        <div class="song-name">Levitating</div>
+        <div class="song-artist">Dua Lipa</div>
+      </div>
+      <div class="controls">
+        <button class="play-btn" onclick="playPreview('Levitating')">▶ Play</button>
+        <button class="subscribe-btn" onclick="subscribe('Levitating')">Subscribe</button>
+        <button class="unsubscribe-btn" onclick="unsubscribe('Levitating')">Unsubscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function playPreview(song) {
+      alert("Playing preview for: " + song);
+    }
+
+    function subscribe(song) {
+      document.getElementById("statusBox").innerText = "Your Current Tune: " + song;
+      alert("You have subscribed to: " + song);
+    }
+
+    function unsubscribe(song) {
+      let currentTune = document.getElementById("statusBox").innerText;
+      if(currentTune.includes(song)) {
+        document.getElementById("statusBox").innerText = "Your Current Tune: None";
+      }
+      alert("You have unsubscribed from: " + song);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verital Connection Form</title>
+  <link rel="stylesheet" href="connection.css">
+</head>
+<body>
+  <div class="form-card">
+    <h2>Verital Connection Request</h2>
+    <form id="connectionForm">
+      <!-- Customer Name -->
+      <label for="custname">Customer Name:</label>
+      <input type="text" id="custname" name="custname" placeholder="Enter the customer name" required>
+
+      <!-- Customer Email -->
+      <label for="email">Customer Email:</label>
+      <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
+
+      <!-- Mobile Number -->
+      <label for="mobile">Mobile Number:</label>
+      <input type="text" id="mobile" name="mobile" placeholder="Enter the Mobile Number" required
+             pattern="^[987][0-9]{9}$" title="Must be 10 digits and start with 9, 8, or 7">
+
+      <!-- Connection Type -->
+      <label for="connectiontype">Connection Type:</label>
+      <select id="connectiontype" name="conntype">
+        <option id="Pre" value="Prepaid">Prepaid</option>
+        <option id="Post" value="Postpaid">Postpaid</option>
+      </select>
+
+      <!-- Scheme Name -->
+      <label>Scheme Name:</label>
+      <div class="radio-group">
+        <input type="radio" id="scheme1" name="scheme" value="Local" required>
+        <label for="scheme1">Local</label>
+        <input type="radio" id="scheme2" name="scheme" value="STD">
+        <label for="scheme2">STD</label>
+        <input type="radio" id="scheme3" name="scheme" value="FullTalkTime">
+        <label for="scheme3">Full Talk Time</label>
+      </div>
+
+      <!-- Duration -->
+      <label for="duration">Connection Duration (Months):</label>
+      <input type="number" id="duration" name="duration" min="1" max="12" required>
+
+      <!-- Buttons -->
+      <div class="btn-group">
+        <input type="submit" id="submit" value="Calculate Bill Amount">
+        <input type="reset" id="clear" value="Reset">
+      </div>
+    </form>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    document.getElementById("connectionForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      let duration = parseInt(document.getElementById("duration").value);
+      let scheme = document.querySelector('input[name="scheme"]:checked').value;
+
+      // Simple dummy pricing rules
+      let pricePerMonth = 0;
+      if (scheme === "Local") pricePerMonth = 100;
+      else if (scheme === "STD") pricePerMonth = 200;
+      else if (scheme === "FullTalkTime") pricePerMonth = 300;
+
+      let total = duration * pricePerMonth;
+
+      document.getElementById("result").innerText = 
+        "Total Bill Amount: ₹" + total;
+    });
+  </script>
+</body>
+</html>

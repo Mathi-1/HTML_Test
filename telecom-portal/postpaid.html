@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseTel — Postpaid Bill Summary</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Pulse<span>Tel</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li><li><a href="index.html#plans">Plans</a></li><li><a href="index.html#recharge">Recharge</a></li><li><a href="postpaid.html" class="active">Postpaid Bill</a></li><li><a href="roaming.html">Roaming Packs</a></li><li><a href="index.html#support">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Postpaid Bill Summary — <span id="billMonth">May 2025</span></h2>
+      <p class="muted">Sample statement with taxes and usage breakdown.</p>
+      <div class="cta" style="margin:10px 0;">
+        <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+        <a class="btn btn-ghost" href="index.html#recharge">Pay Now</a>
+      </div>
+
+      <p class="muted">Bill No: <strong id="billNo">—</strong> • Date: <strong id="billDate">—</strong></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Details</th>
+            <th>Amount (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monthly Rental</td><td>PulseTel Postpaid M-Plan</td><td>399.00</td></tr>
+          <tr><td>Voice Usage</td><td>Within FUP (unlimited)</td><td>0.00</td></tr>
+          <tr><td>Data Usage</td><td>35 GB (within plan)</td><td>0.00</td></tr>
+          <tr><td>SMS</td><td>100 SMS included</td><td>0.00</td></tr>
+          <tr><td>Roaming</td><td>National roaming (included)</td><td>0.00</td></tr>
+          <tr><td>VAS</td><td>Caller Tune</td><td>49.00</td></tr>
+          <tr><td colspan="2"><strong>Subtotal</strong></td><td><strong>448.00</strong></td></tr>
+          <tr><td>GST @ 18%</td><td>CGST 9% + SGST 9%</td><td>80.64</td></tr>
+          <tr><td colspan="2"><strong>Payable</strong></td><td><strong>528.64</strong></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Usage Snapshot</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th><th>Allowance</th><th>Used</th><th>Remaining</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Data</td><td>50 GB</td><td>35 GB</td><td>15 GB</td></tr>
+          <tr><td>SMS</td><td>100</td><td>45</td><td>55</td></tr>
+          <tr><td>Voice</td><td>Unlimited</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>© 2025 PulseTel Ltd. • Postpaid Bill Summary (demo)</footer>
+
+  <script>
+    // Auto-fill bill number and date/month
+    (function(){
+      var now = new Date();
+      var y = now.getFullYear();
+      var m = String(now.getMonth()+1).padStart(2,'0');
+      var d = String(now.getDate()).padStart(2,'0');
+      var rand = Math.floor(1000 + Math.random()*9000);
+      var billNo = 'PT-' + y + m + d + '-' + rand;
+      var dateStr = now.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+      var monthStr = now.toLocaleDateString('en-IN', { year: 'numeric', month: 'long' });
+
+      document.getElementById('billNo').textContent = billNo;
+      document.getElementById('billDate').textContent = dateStr;
+      document.getElementById('billMonth').textContent = monthStr;
+    })();
+  </script>
+</body>
+</html>

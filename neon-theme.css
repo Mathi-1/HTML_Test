@@ -1,0 +1,145 @@
+/* CRBT Subscription – Palette Themed */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #01303f; /* Darkest color as background */
+  color: #d4f0fc; /* Lightest color for text */
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: #02577a;
+  color: #d4f0fc;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px #02577a;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #d4f0fc;
+  text-shadow: 0 0 5px #02a9f7;
+}
+
+/* Status Box */
+.status-box {
+  background: #01303f;
+  padding: 15px;
+  border: 2px solid #02a9f7;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  box-shadow: 0 0 12px #02a9f7;
+  color: #89d6fb;
+}
+
+/* Song List */
+.song-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.song-card {
+  background: #02577a;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #02a9f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.song-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 20px #89d6fb;
+}
+
+.song-info {
+  margin-bottom: 10px;
+}
+
+.song-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #d4f0fc;
+  text-shadow: 0 0 8px #89d6fb;
+}
+
+.song-artist {
+  font-size: 0.9rem;
+  color: #89d6fb;
+  text-shadow: 0 0 5px #02a9f7;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #01303f;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Buttons with Palette Colors */
+.play-btn {
+  background: #d4f0fc;
+  color: #01303f;
+}
+
+.play-btn:hover {
+  background: #89d6fb;
+  color: #01303f;
+  box-shadow: 0 0 10px #d4f0fc;
+}
+
+.subscribe-btn {
+  background: #02a9f7;
+  color: #01303f;
+}
+
+.subscribe-btn:hover {
+  background: #89d6fb;
+  color: #01303f;
+  box-shadow: 0 0 12px #02a9f7;
+}
+
+.unsubscribe-btn {
+  background: #89d6fb;
+  color: #01303f;
+}
+
+.unsubscribe-btn:hover {
+  background: #d4f0fc;
+  color: #01303f;
+  box-shadow: 0 0 12px #89d6fb;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .song-list {
+    grid-template-columns: 1fr;
+  }
+}

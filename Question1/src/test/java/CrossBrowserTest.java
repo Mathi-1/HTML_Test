@@ -1,0 +1,40 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+public class CrossBrowserTest {
+    WebDriver driver;
+
+    @Parameters("browser")
+    @BeforeMethod
+    public void setup(String browser) {
+        if (browser.equalsIgnoreCase("chrome")) {
+            driver = new ChromeDriver();
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            driver = new FirefoxDriver();
+        }
+    }
+
+    @Test
+    public void testLogin() {
+        String path = "C:/Users/Srimathi/Desktop/assessment_3/login.html";
+        driver.get("file:///" + path);
+
+        driver.findElement(By.id("username")).sendKeys("validUser@example.com");
+        driver.findElement(By.id("password")).sendKeys("ValidPass123");
+        driver.findElement(By.id("loginBtn")).click();
+
+        String result = driver.findElement(By.id("message")).getText();
+        Assert.assertEquals(result, "success", "Login test failed!");
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}

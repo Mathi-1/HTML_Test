@@ -1,0 +1,6 @@
+username,password,expectedResult
+validUser@example.com,ValidPass123,success
+validUser@example.com,WrongPass,failure
+invalidEmail,SomePass,failure
+,ValidPass123,failure
+validUser@example.com,,failure

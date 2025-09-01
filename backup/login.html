@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Veritel - Login</title>
+</head>
+<body>
+    <h2>Veritel Login</h2>
+    <form>
+        <label>Email:</label>
+        <input type="text" id="username"><br><br>
+        <label>Password:</label>
+        <input type="password" id="password"><br><br>
+        <button type="button" id="loginBtn" onclick="login()">Login</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var msg = "";
+
+            if (username === "validUser@example.com" && password === "ValidPass123") {
+                msg = "success";
+            } else {
+                msg = "failure";
+            }
+            document.getElementById("message").innerText = msg;
+        }
+    </script>
+</body>
+</html>

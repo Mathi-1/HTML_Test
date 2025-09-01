@@ -1,0 +1,5 @@
+searchTerm
+Selenium IDE
+Test Automation
+OpenAI GPT
+DuckDuckGo

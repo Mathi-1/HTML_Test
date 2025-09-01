@@ -1,0 +1,111 @@
+/* Forest Themed CSS with Given Palette */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #c9c1b6; /* main background */
+    color: #212528; /* default text */
+}
+
+h1 {
+    color: #403b35; /* dark brown for main heading */
+    text-shadow: 2px 2px 4px rgba(64,59,53,0.4);
+}
+
+h2 {
+    color: #596a48; /* muted green */
+    margin-top: 20px;
+}
+
+p {
+    max-width: 600px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+a {
+    color: #596a48;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover {
+    color: #403b35;
+    text-decoration: underline;
+}
+
+img {
+    border-radius: 12px;
+    border: 3px solid #596a48;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(33,37,40,0.5);
+}
+
+/* Buttons */
+button, input[type="submit"] {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #596a48;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+button:hover, input[type="submit"]:hover {
+    background-color: #403b35;
+}
+
+/* Table */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 60%;
+    background: #999788; /* muted background */
+}
+th, td {
+    border: 1px solid #403b35;
+    padding: 12px;
+}
+th {
+    background-color: #403b35;
+    color: #fff;
+}
+td {
+    background-color: #c9c1b6;
+    color: #212528;
+}
+
+/* Form */
+form {
+    margin-top: 20px;
+    background: #999788;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 12px rgba(33,37,40,0.4);
+}
+label {
+    display: block;
+    margin-top: 10px;
+    color: #212528;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 90%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px solid #596a48;
+    border-radius: 6px;
+    outline: none;
+    background: #c9c1b6;
+    color: #212528;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #403b35;
+    background: #fff;
+}

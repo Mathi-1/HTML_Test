@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseTel — Roaming Packs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Pulse<span>Tel</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li><li><a href="index.html#plans">Plans</a></li><li><a href="index.html#recharge">Recharge</a></li><li><a href="postpaid.html">Postpaid Bill</a></li><li><a href="roaming.html" class="active">Roaming Packs</a></li><li><a href="index.html#support">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="panel hero">
+      <div>
+        <p class="tag">Travel Friendly</p>
+        <h1>Go global with <span>Roaming Packs</span></h1>
+        <p class="muted">Pick a pack based on destination. Click “Activate” to auto-fill the recharge form on Home.</p>
+        <div class="cta">
+          <a class="btn btn-ghost" href="index.html#recharge">Go to Recharge</a>
+        </div>
+      </div>
+      <img class="hero-img" src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1200&auto=format&fit=crop" alt="Airplane and travel" />
+    </section>
+
+    <section class="panel">
+      <h2>International Roaming Packs</h2>
+      <table>
+        <thead>
+          <tr><th>Region</th><th>Data</th><th>Validity</th><th>Price</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Asia (SAARC)</td><td>1 GB</td><td>7 Days</td><td>₹899</td><td><a class="link roam-activate" data-plan="IR Asia 899" href="#">Activate</a></td></tr>
+          <tr><td>Europe</td><td>3 GB</td><td>14 Days</td><td>₹2499</td><td><a class="link roam-activate" data-plan="IR Europe 2499" href="#">Activate</a></td></tr>
+          <tr><td>USA/Canada</td><td>5 GB</td><td>14 Days</td><td>₹3499</td><td><a class="link roam-activate" data-plan="IR US 3499" href="#">Activate</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>National Roaming Add‑Ons</h2>
+      <table>
+        <thead>
+          <tr><th>Pack</th><th>Benefit</th><th>Validity</th><th>Price</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>NR Talk 99</td><td>Unlimited incoming + 100 mins outgoing</td><td>7 Days</td><td>₹99</td><td><a class="link roam-activate" data-plan="NR Talk 99" href="#">Activate</a></td></tr>
+          <tr><td>NR Combo 199</td><td>1 GB data + 200 mins</td><td>14 Days</td><td>₹199</td><td><a class="link roam-activate" data-plan="NR Combo 199" href="#">Activate</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>© 2025 PulseTel Ltd. • Roaming Packs (demo)</footer>
+
+  <script>
+    document.querySelectorAll('.roam-activate').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        var value = el.getAttribute('data-plan');
+        localStorage.setItem('selectedPlan', value);
+        window.location.href = 'index.html#recharge';
+      });
+    });
+  </script>
+</body>
+</html>

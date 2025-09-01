@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseTel — Customer Self‑Service Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Pulse<span>Tel</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="active">Home</a></li><li><a href="index.html#plans">Plans</a></li><li><a href="index.html#recharge">Recharge</a></li><li><a href="postpaid.html">Postpaid Bill</a></li><li><a href="roaming.html">Roaming Packs</a></li><li><a href="index.html#support">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" id="home">
+    <section class="panel hero">
+      <div class="hero-copy">
+        <p class="tag">Telecom demo — HTML + CSS</p>
+        <h1>Stay connected with <span>PulseTel</span></h1>
+        <p class="muted">A mini telecom portal showcasing semantic HTML, forms, tables, links, buttons, hover & focus states—ready for classroom demos.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#recharge">Quick Recharge</a>
+          <a class="btn btn-ghost" href="#plans">View Plans</a>
+        </div>
+      </div>
+      <img class="hero-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Telecom network and devices" />
+    </section>
+
+    <section class="panel" id="plans">
+      <h2>Popular Mobile Plans</h2>
+      <p class="muted">Hover over rows to preview. Click a plan link to auto-select it in the recharge form.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Plan</th>
+            <th>Validity</th>
+            <th>Data</th>
+            <th>Calls</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Smart 199</td>
+            <td>28 Days</td>
+            <td>1.5 GB / day</td>
+            <td>Unlimited</td>
+            <td>₹199</td>
+            <td><a class="link plan-select" data-plan="Smart 199" href="#">Choose</a></td>
+          </tr>
+          <tr>
+            <td>Super 399</td>
+            <td>56 Days</td>
+            <td>2 GB / day</td>
+            <td>Unlimited</td>
+            <td>₹399</td>
+            <td><a class="link plan-select" data-plan="Super 399" href="#">Choose</a></td>
+          </tr>
+          <tr>
+            <td>Ultra 599</td>
+            <td>84 Days</td>
+            <td>2.5 GB / day</td>
+            <td>Unlimited</td>
+            <td>₹599</td>
+            <td><a class="link plan-select" data-plan="Ultra 599" href="#">Choose</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel" id="recharge">
+      <h2>Quick Recharge</h2>
+      <p class="muted">Fields marked * are required.</p>
+      <form id="rechargeForm" action="#" method="post" novalidate>
+        <div class="row">
+          <div>
+            <label for="msisdn">Mobile Number *</label>
+            <input type="text" id="msisdn" autocomplete="tel-national" name="msisdn" placeholder="10-digit number" required pattern="^[6-9]\d{9}$" />
+            <div id="msisdnErr" class="error" aria-live="polite"></div>
+          </div>
+          <div>
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email"  autocomplete="email" placeholder="you@example.com" required />
+            <div id="emailErr" class="error" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Connection Type *</label>
+            <div class="radios" role="radiogroup" aria-label="Connection Type">
+              <label><input type="radio" name="ctype" value="prepaid" required /> Prepaid</label>
+              <label><input type="radio" name="ctype" value="postpaid" /> Postpaid</label>
+            </div>
+            <div id="ctypeErr" class="error" aria-live="polite"></div>
+          </div>
+          <div>
+            <label for="circle">Circle / Region *</label>
+            <select id="circle" name="circle" required>
+              <option value="">-- Select --</option>
+              <option value="tn">Tamil Nadu</option>
+              <option value="ka">Karnataka</option>
+              <option value="mh">Maharashtra</option>
+              <option value="dl">Delhi NCR</option>
+            </select>
+            <div id="circleErr" class="error" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="plan">Plan *</label>
+            <select id="plan" name="plan" required>
+              <option value="">-- Choose a plan --</option>
+              <option>Smart 199</option>
+              <option>Super 399</option>
+              <option>Ultra 599</option>
+            </select>
+            <div class="help">Tip: Use the “Choose” links in the table above to auto-fill this.</div>
+            <div id="planErr" class="error" aria-live="polite"></div>
+          </div>
+          <div>
+            <label for="coupon">Coupon Code</label>
+            <input type="text" id="coupon" name="coupon" placeholder="Optional" />
+          </div>
+        </div>
+
+        <div>
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Any special instructions…"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <input class="btn btn-primary" type="submit" value="Pay & Recharge" />
+          <input class="btn btn-ghost" type="reset" value="Reset" />
+          <button type="button" class="btn btn-danger" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" id="support">
+      <h2>Raise a Support Ticket</h2>
+      <form id="ticketForm" action="#" method="post" novalidate>
+        <div class="row">
+          <div>
+            <label for="issueType">Issue Type *</label>
+            <select id="issueType" name="issueType" required>
+              <option value="">-- Select --</option>
+              <option value="network">Network Coverage</option>
+              <option value="billing">Billing / Charges</option>
+              <option value="vas">VAS / Roaming</option>
+              <option value="other">Other</option>
+            </select>
+            <div id="issueErr" class="error" aria-live="polite"></div>
+          </div>
+          <div>
+            <label>Priority *</label>
+            <div class="radios">
+              <label><input type="radio" name="priority" value="low" required /> Low</label>
+              <label><input type="radio" name="priority" value="medium" /> Medium</label>
+              <label><input type="radio" name="priority" value="high" /> High</label>
+            </div>
+            <div id="priorityErr" class="error" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div>
+          <label for="desc">Describe your issue *</label>
+          <textarea id="desc" name="desc" rows="4" required placeholder="Give us details so we can help fast…"></textarea>
+          <div id="descErr" class="error" aria-live="polite"></div>
+        </div>
+
+        <div class="form-actions">
+          <input class="btn btn-primary" type="submit" value="Submit Ticket" />
+          <button type="button" class="btn btn-ghost" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Back to Top</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Useful Links</h2>
+      <p class="muted">Hover to see effects.</p>
+      <div class="cta">
+        <a class="btn btn-ghost" href="#home">Home</a>
+        <a class="btn btn-primary" href="https://www.speedtest.net/" target="_blank" rel="noopener">Speed Test ↗</a>
+        <a class="btn btn-primary" href="https://www.trai.gov.in/consumer-complaints" target="_blank" rel="noopener">Consumer Complaints ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 PulseTel Ltd. • Demo project for teaching: nav bar, images, tables, links, hover, radio buttons, dropdowns, textarea, labels, and input buttons.
+  </footer>
+
+  <!-- Toast container -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Choose plan → prefill
+    document.querySelectorAll('.plan-select').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        var value = el.getAttribute('data-plan');
+        var select = document.getElementById('plan');
+        if (select) { select.value = value; document.getElementById('recharge').scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // Cancel button demo
+    document.getElementById('cancelBtn').addEventListener('click', function(){
+      if (confirm('Cancel the recharge and clear the form?')) document.getElementById('rechargeForm').reset();
+    });
+
+    // Prefill from localStorage (from roaming page)
+    var stored = localStorage.getItem('selectedPlan');
+    if (stored) {
+      var select = document.getElementById('plan');
+      if (select) select.value = stored;
+      localStorage.removeItem('selectedPlan');
+    }
+
+    // === Basic Client-side Validation + Toasts ===
+    function showError(id,msg){ document.getElementById(id).textContent = msg || ''; }
+    function validMsisdn(v){ return /^[6-9]\d{9}$/.test(v.replace(/\s+/g,'')); }
+    function showToast(msg){
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 2600);
+    }
+
+    document.getElementById('rechargeForm').addEventListener('submit', function(e){
+      var ok = true;
+
+      var msisdn = document.getElementById('msisdn').value.trim();
+      if(!validMsisdn(msisdn)){ showError('msisdnErr','Enter a valid 10-digit Indian mobile number (starts with 6–9).'); ok=false; } else showError('msisdnErr','');
+
+      var email = document.getElementById('email');
+      if(!email.checkValidity()){ showError('emailErr','Enter a valid email.'); ok=false; } else showError('emailErr','');
+
+      var ctype = document.querySelector('input[name="ctype"]:checked');
+      if(!ctype){ showError('ctypeErr','Select connection type.'); ok=false; } else showError('ctypeErr','');
+
+      var circle = document.getElementById('circle');
+      if(!circle.value){ showError('circleErr','Select a circle/region.'); ok=false; } else showError('circleErr','');
+
+      var plan = document.getElementById('plan');
+      if(!plan.value){ showError('planErr','Choose a plan.'); ok=false; } else showError('planErr','');
+
+      if(!ok){ e.preventDefault(); return; }
+      e.preventDefault(); // simulate success for the demo
+      showToast('✅ Recharge submitted!');
+      this.reset();
+    });
+
+    document.getElementById('ticketForm').addEventListener('submit', function(e){
+      var ok = true;
+      var issue = document.getElementById('issueType');
+      if(!issue.value){ document.getElementById('issueErr').textContent='Select an issue type.'; ok=false; } else document.getElementById('issueErr').textContent='';
+
+      var pr = document.querySelector('input[name="priority"]:checked');
+      if(!pr){ document.getElementById('priorityErr').textContent='Select a priority.'; ok=false; } else document.getElementById('priorityErr').textContent='';
+
+      var desc = document.getElementById('desc');
+      if(!desc.value.trim()){ document.getElementById('descErr').textContent='Please describe your issue.'; ok=false; } else document.getElementById('descErr').textContent='';
+
+      if(!ok){ e.preventDefault(); return; }
+      e.preventDefault(); // simulate success for the demo
+      showToast('📨 Ticket submitted! We will get back shortly.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

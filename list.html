@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student List Renderer</title>
+  <link rel="stylesheet" href="list_style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Student List</h2>
+    <ul id="studentList"></ul>
+    <button onclick="addStudent()">Add Student</button>
+  </div>
+
+  <script>
+    // Initial array of students
+    let students = ["Ananya", "Rahul", "Vikram", "Meera", "Suresh"];
+
+    // Function to render student list
+    function renderList() {
+      const list = document.getElementById("studentList");
+      list.innerHTML = students.map(student => `<li>${student}</li>`).join("");
+    }
+
+    // Function to add student
+    function addStudent() {
+      let name = prompt("Enter student name:");
+      if (name && name.trim() !== "") {
+        students.push(name.trim());
+        renderList();
+      } else {
+        alert("Invalid name. Please try again.");
+      }
+    }
+
+    // Render initial list
+    renderList();
+  </script>
+</body>
+</html>

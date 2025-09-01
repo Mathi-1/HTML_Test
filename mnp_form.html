@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MNP Request Form</title>
+  <link rel="stylesheet" href="mnp_style.css">
+</head>
+<body>
+  <div class="form-card">
+    <h2>Porting Request Form</h2>
+    <form>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Enter your name" required>
+
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="10-digit number" pattern="[0-9]{10}" required>
+
+      <label for="current-operator">Current Operator</label>
+      <select id="current-operator" name="current-operator" required>
+        <option value="">--Select Current Operator--</option>
+        <option value="airtel">Airtel</option>
+        <option value="jio">Jio</option>
+        <option value="vi">Vi</option>
+        <option value="bsnl">BSNL</option>
+      </select>
+
+      <label for="new-operator">New Operator</label>
+      <select id="new-operator" name="new-operator" required>
+        <option value="">--Select New Operator--</option>
+        <option value="airtel">Airtel</option>
+        <option value="jio">Jio</option>
+        <option value="vi">Vi</option>
+        <option value="bsnl">BSNL</option>
+      </select>
+
+      <label for="reason">Reason for Porting</label>
+      <textarea id="reason" name="reason" placeholder="Enter your reason..." required></textarea>
+
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+</body>
+</html>
